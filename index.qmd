@@ -1,6 +1,6 @@
 ---
-title: "Weekly Summary Template"
-author: "Author Name"
+title: "Weekly Summary 3"
+author: "Alvaro Tapia"
 title-block-banner: true
 title-block-style: default
 toc: true
@@ -10,67 +10,78 @@ format: html
 
 ---
 
-## Tuesday, Jan 17
+## Tuesday, Jan 24
 
 ::: {.callout-important}
 ## TIL
 
-Include a _very brief_ summary of what you learnt in this class here. 
+In this class we first started learning about how does a csv file looks like and also how to read csv files in R. Then we learned how useful the packages such as "ggplot2" and "dplyr" are for exploratory data analysis. Finally we learned how to clean a csv file o a data sources/set.
 
 Today, I learnt the following concepts in class:
 
-1. Item 1
-1. Item 2
-1. Item 3
+1. Learned how to read csv files, using: File_location <- “./data/data.csv” and Data_from.csv <- read.csv(file_location)
+
+2. We learned what "dplyr" and "ggplot2" packages d, such as trend lines, creating color for species, and more.
+
+3. We learned how to clean a dataset, for example. Getting rid of the NULL, NA, NaN variables, making sure all the particular variable data types are the same, and that every variable has its own column.
+
 :::
 
-Provide more concrete details here. You can also use footenotes[^footnote] if you like
+Here it's an example of using ggplo2
 
 ```{R results='hide'}
 #| output: false
-library(dplyr)
-library(purrr)
+library(ggplot2)
+head(mpg,5) %>% knitr::kable()
+head(iris,5) %>% knitr::kable()
 ```
 
 
-For example: 
-in class we learnt we learnt about the `map` function from the `purrr` package. 
-
-
-```{R results='hide', fig.width=7, fig.height=7}
-par(mfrow=c(3, 3), mar=c(3.5, 3.5, 2, 1), mgp=c(2.4, 0.8, 0))
-map(1:9, function(i)rnorm(1000) %>% hist(., main=i, col=i))
-```
-
-
-
-## Thursday, Jan 19
+## Thursday, Jan 26
 
 
 
 ::: {.callout-important}
 ## TIL
 
-Include a _very brief_ summary of what you learnt in this class here. 
+In this class we did a lot of things, first we started installing again ggplot2, but now we included the package "ggThemesAssist". After that, we also started talking about the package "broom" which is used to clean dataframes and datasets. We also recalled what we learned about data types, such as string, integers, double and boolean. Basically we learned about more packages and their functionality and did some exercises.
+
 
 Today, I learnt the following concepts in class:
 
-1. Item 1
-1. Item 2
-1. Item 3
+1. Learned how to install and use ggplot2, ggThemeAssist, and broom.
+2. Then we learned about the “forcats” package 
+3. Then we learned about the “purr” package. This package provides a set of functional programing tools. 
 :::
 
-Provide more concrete details here, e.g., 
+Here are some examples of using the first packages described.
 
-In class we learnt how to use the `map` function to create multiple regression diagnostic plots
-
-```{R results='hide', fig.height=4}
-par(mfcol=c(2, 3), mar=c(3.5, 3.5, 2, 1), mgp=c(2.4, 0.8, 0))
-mtcars %>%
-  split(.$cyl) %>%
-  map(~ lm(mpg ~ wt, data = .x)) %>%
-  map(function(x)plot(x, which=c(1, 2)))
+```{R results='hide'}
+library(ggplot2)
+library(ggThemeAssist)
+As.factor(iris)
+Iris$Species
+Head(mp, 3) %>% Knits::Kable
 ```
 
+Examples using the library forcats
 
-[^footnote]: You can include some footnotes here
+```{R results='hide'}
+Library(forcats)
+Manufacturer <- as.factor(mpg$manufacturer)
+Fct_reorder(manufacturer, mpg$my, min)
+```
+
+Finding the average pf ‘Sepal.Area’ for every flower in the species:
+
+```{R results='hide'}
+Iris %>%
+Mutate(Area = Sepal.Length * Sepal.Width) %>%
+Group.by()
+Summarize()
+```
+
+After that we created a matrix with random entries of dimension ‘I’ $\times$ ‘I’ and then we computed the average of the elements of the matrix. However I was unable to keep track of the code.
+
+
+[^footnote]: I'm missing some examples because even though I tried to take pictures of the class because everything was being typed very fast it was blurry because I sat at the back, the next weekly summary will have everything included.
